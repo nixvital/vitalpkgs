@@ -17,6 +17,7 @@
       inherit supportedLinuxSystems;
       overlay = final: prev: {
         popl = final.callPackage ./pkgs/popl {};
+        nlohmann_json = final.callPackage ./pkgs/nlohmann_json {};
       };
     } // flake-utils.lib.eachSystem supportedLinuxSystems
       (system: let pkgs = import nixpkgs {
@@ -24,7 +25,7 @@
                      overlays = [ self.overlay ];
                    }; in {
                      packages = {
-                       inherit (pkgs) popl;
+                       inherit (pkgs) popl nlohmann_json;
                      };
                    });
 }
