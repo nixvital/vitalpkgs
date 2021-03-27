@@ -18,6 +18,7 @@
       overlay = final: prev: {
         popl = final.callPackage ./pkgs/popl {};
         nlohmann_json = final.callPackage ./pkgs/nlohmann_json {};
+        clickhouse-cpp = final.callPackage ./pkgs/clickhouse-cpp {};
       };
     } // flake-utils.lib.eachSystem supportedLinuxSystems
       (system: let pkgs = import nixpkgs {
@@ -25,7 +26,7 @@
                      overlays = [ self.overlay ];
                    }; in {
                      packages = {
-                       inherit (pkgs) popl nlohmann_json;
+                       inherit (pkgs) popl nlohmann_json clickhouse-cpp;
                      };
                    });
 }

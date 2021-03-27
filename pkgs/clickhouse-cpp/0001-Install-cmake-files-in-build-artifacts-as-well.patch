@@ -1,0 +1,53 @@
+From eb6b525a5d8148c07bb6e19edfbccd7b6286a9b6 Mon Sep 17 00:00:00 2001
+From: Break Yang <breakds@gmail.com>
+Date: Sat, 27 Mar 2021 10:20:39 -0700
+Subject: [PATCH] Install cmake files in build artifacts as well
+
+---
+ clickhouse/CMakeLists.txt | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
+
+diff --git a/clickhouse/CMakeLists.txt b/clickhouse/CMakeLists.txt
+index 7e10ffd..3ee4b55 100644
+--- a/clickhouse/CMakeLists.txt
++++ b/clickhouse/CMakeLists.txt
+@@ -34,6 +34,7 @@ SET ( clickhouse-cpp-lib-src
+ ADD_LIBRARY (clickhouse-cpp-lib SHARED ${clickhouse-cpp-lib-src})
+ SET_TARGET_PROPERTIES(clickhouse-cpp-lib PROPERTIES LINKER_LANGUAGE CXX)
+ TARGET_LINK_LIBRARIES (clickhouse-cpp-lib
++    PRIVATE
+     absl-lib
+     cityhash-lib
+     lz4-lib
+@@ -48,15 +49,26 @@ TARGET_LINK_LIBRARIES (clickhouse-cpp-lib-static
+ 
+ IF (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+     set (CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} --rtlib=compiler-rt")
+-    TARGET_LINK_LIBRARIES (clickhouse-cpp-lib gcc_s)
+     TARGET_LINK_LIBRARIES (clickhouse-cpp-lib-static gcc_s)
+ ENDIF ()
+ 
+-INSTALL(TARGETS clickhouse-cpp-lib clickhouse-cpp-lib-static
++INSTALL(TARGETS clickhouse-cpp-lib
++    EXPORT clickhouse-cppConfig
+     ARCHIVE DESTINATION lib
+     LIBRARY DESTINATION lib
+ )
+ 
++export(TARGETS clickhouse-cpp-lib
++    NAMESPACE clickhouse-cpp::
++    FILE "$lib/cmake/clickhouse-cpp/clickhouse-cppConfig.cmake")
++
++install(EXPORT clickhouse-cppConfig
++    DESTINATION "lib/cmake/clickhouse-cpp"
++    NAMESPACE clickhouse-cpp::)
++
++INSTALL(TARGETS clickhouse-cpp-lib-static
++    ARCHIVE DESTINATION lib
++    LIBRARY DESTINATION lib)
+ 
+ # general
+ INSTALL(FILES block.h DESTINATION include/clickhouse/)
+-- 
+2.29.2
+
