@@ -21,3 +21,17 @@ provides
 1. An `overlay` that has all the packages.
 2. You can also access (build, inspect, ...) a single package under
    `packages.<system>.<package-name>`.
+
+# List Of Packages
+
+* [popl](https://github.com/badaix/popl)
+  - popl is a C++ command line arguments parser that supports the same
+    set of options as GNU's `getopt` and thus closely follows the
+    POSIX guidelines for the command-line options of a program.
+* [nlohmann_json](https://github.com/nlohmann/json)
+  - Header only C++ library for JSON serialization and deserialization
+  - [Design Goals](https://github.com/nlohmann/json#design-goals)
+  - [Examples](https://github.com/nlohmann/json#examples)
+* [clickhouse-cpp](https://github.com/ClickHouse/clickhouse-cpp)
+  - C++ client for [ClickHouse](https://clickhouse.tech/) database.
+
