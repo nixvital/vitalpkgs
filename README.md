@@ -34,4 +34,10 @@ provides
   - [Examples](https://github.com/nlohmann/json#examples)
 * [clickhouse-cpp](https://github.com/ClickHouse/clickhouse-cpp)
   - C++ client for [ClickHouse](https://clickhouse.tech/) database.
-
+* [ethminer](https://github.com/ethereum-mining/ethminer) **BROKEN**
+  - Ethminer is an Ethash GPU mining worker. 
+  - With ethminer you can mine every coin which relies on an Ethash
+    Proof of Work thus including Ethereum, Ethereum Classic,
+    Metaverse, Musicoin, Ellaism, Pirl, Expanse and others.
+  - This is the `0.19` pre-release version which can work with CUDA 11
+    and Geforce 30 series cards. Upstream is at `0.18`.

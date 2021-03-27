@@ -19,14 +19,16 @@
         popl = final.callPackage ./pkgs/popl {};
         nlohmann_json = final.callPackage ./pkgs/nlohmann_json {};
         clickhouse-cpp = final.callPackage ./pkgs/clickhouse-cpp {};
+        ethminer = final.callPackage ./pkgs/ethminer {};
       };
     } // flake-utils.lib.eachSystem supportedLinuxSystems
       (system: let pkgs = import nixpkgs {
                      inherit system;
                      overlays = [ self.overlay ];
+                     config.allowUnfree = true;
                    }; in {
                      packages = {
-                       inherit (pkgs) popl nlohmann_json clickhouse-cpp;
+                       inherit (pkgs) popl nlohmann_json clickhouse-cpp ethminer;
                      };
                    });
 }
