@@ -32,7 +32,7 @@ in buildPythonPackage rec {
   meta = with lib; {
     description = "BLS Signatures implementation";
     homepage = "https://github.com/Chia-Network/bls-signatures";
-    license = licenses.mit;
+    license = licenses.asl20;
     maintainers = with maintainers; [ breakds ];
   };
 }
