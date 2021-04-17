@@ -25,6 +25,7 @@
             blspy = python-final.callPackage ./pkgs/chia/blspy {};
             chiavdf = python-final.callPackage ./pkgs/chia/chiavdf {};
             chiabip158 = python-final.callPackage ./pkgs/chia/chiabip158 {};
+            chiapos = python-final.callPackage ./pkgs/chia/chiapos {};
           };
         };
       };
