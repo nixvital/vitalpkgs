@@ -23,6 +23,7 @@
         python3 = prev.python3.override {
           packageOverrides = python-final: python-prev: {
             blspy = python-final.callPackage ./pkgs/chia/blspy {};
+            chiavdf = python-final.callPackage ./pkgs/chia/chiavdf {};
           };
         };
       };
