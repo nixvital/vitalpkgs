@@ -24,6 +24,7 @@
           packageOverrides = python-final: python-prev: {
             blspy = python-final.callPackage ./pkgs/chia/blspy {};
             chiavdf = python-final.callPackage ./pkgs/chia/chiavdf {};
+            chiabip158 = python-final.callPackage ./pkgs/chia/chiabip158 {};
           };
         };
       };
