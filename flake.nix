@@ -20,6 +20,11 @@
         nlohmann_json = final.callPackage ./pkgs/nlohmann_json {};
         clickhouse-cpp = final.callPackage ./pkgs/clickhouse-cpp {};
         ethminer = final.callPackage ./pkgs/ethminer {};
+        python3 = prev.python3.override {
+          packageOverrides = python-final: python-prev: {
+            blspy = python-final.callPackage ./pkgs/chia/blspy {};
+          };
+        };
       };
     } // flake-utils.lib.eachSystem supportedLinuxSystems
       (system: let pkgs = import nixpkgs {
