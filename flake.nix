@@ -26,6 +26,7 @@
             chiavdf = python-final.callPackage ./pkgs/chia/chiavdf {};
             chiabip158 = python-final.callPackage ./pkgs/chia/chiabip158 {};
             chiapos = python-final.callPackage ./pkgs/chia/chiapos {};
+            clvm = python-final.callPackage ./pkgs/chia/clvm {};
           };
         };
       };
@@ -34,9 +35,22 @@
                      inherit system;
                      overlays = [ self.overlay ];
                      config.allowUnfree = true;
-                   }; in {
-                     packages = {
-                       inherit (pkgs) popl nlohmann_json clickhouse-cpp ethminer;
-                     };
-                   });
+                   };
+
+                   customizedPython = pkgs.python3.withPackages (python-packages: with python-packages; [
+                     clvm
+                   ]);
+               in {
+                 packages = {
+                   inherit (pkgs) popl nlohmann_json clickhouse-cpp ethminer;
+                 };
+
+                 devShell = pkgs.mkShell rec {
+                   name = "vitalpkgs";
+                   buildInputs = with pkgs; [
+                     popl nlohmann_json clickhouse-cpp
+                     customizedPython
+                   ];
+                 };
+               });
 }
