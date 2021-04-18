@@ -41,3 +41,7 @@ provides
     Metaverse, Musicoin, Ellaism, Pirl, Expanse and others.
   - This is the `0.19` pre-release version which can work with CUDA 11
     and Geforce 30 series cards. Upstream is at `0.18`.
+
+# TODO
+
+1. [How to add python package derivation in a flake?](https://discourse.nixos.org/t/how-can-i-write-a-python-package-derivation-in-a-flake/11770)

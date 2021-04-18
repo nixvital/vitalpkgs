@@ -1,5 +1,4 @@
-{ lib, buildPythonPackage,
-  pytest,
+{ lib, buildPythonPackage, stdenv,
   blspy }:
 
 buildPythonPackage rec {
@@ -11,13 +10,9 @@ buildPythonPackage rec {
     sha256 = "1h1d5fcbcnv815a502q0fy9q7r2z4cz31i6n9wj1v1y5a250852w";
   };
 
-  checkInputs = [ pytest ];
+  doCheck = false;
 
-  buildInputs = [
-    stdenv.cc.cc.lib
-  ];
-
-  propagatedBuildInputs = [ blspy ];
+  propagatedBuildInputs = [ blspy stdenv.cc.cc.lib ];
 
   meta = with lib; {
     description = ''

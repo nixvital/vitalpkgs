@@ -1,5 +1,6 @@
 { lib
 , pkgs
+, stdenv  
 , buildPythonPackage
 , isPy37
 , isPy38
@@ -27,7 +28,7 @@ in buildPythonPackage rec {
     sha256 = "1mms0by14v7lxcskm0x5r3gyfw1ixyaf00h6l1ld65zsp1pp0ys9";
   };
 
-  propagatedBuildInputs = [ setuptools ];
+  propagatedBuildInputs = [ setuptools stdenv.cc.cc.lib ];
 
   meta = with lib; {
     description = "BLS Signatures implementation";

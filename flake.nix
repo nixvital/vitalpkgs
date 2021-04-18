@@ -38,7 +38,7 @@
                    };
 
                    customizedPython = pkgs.python3.withPackages (python-packages: with python-packages; [
-                     clvm
+                     blspy
                    ]);
                in {
                  packages = {
