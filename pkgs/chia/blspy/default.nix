@@ -28,7 +28,11 @@ in buildPythonPackage rec {
     sha256 = "1mms0by14v7lxcskm0x5r3gyfw1ixyaf00h6l1ld65zsp1pp0ys9";
   };
 
-  propagatedBuildInputs = [ setuptools stdenv.cc.cc.lib ];
+  buildInputs = [ stdenv.cc.cc.lib ];
+
+  propagatedBuildInputs = [ setuptools ];
+
+  nativeBuildInputs = [ pkgs.autoPatchelfHook ];  
 
   meta = with lib; {
     description = "BLS Signatures implementation";

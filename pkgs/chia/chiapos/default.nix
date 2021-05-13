@@ -1,5 +1,6 @@
 { lib
 , pkgs
+, stdenv
 , buildPythonPackage
 , isPy37
 , isPy38
@@ -25,6 +26,10 @@ in buildPythonPackage rec {
   };
 
   propagatedBuildInputs = [ setuptools ];
+
+  buildInputs = [ stdenv.cc.cc.lib ];
+
+  nativeBuildInputs = [ pkgs.autoPatchelfHook ];  
 
   meta = with lib; {
     description = ''

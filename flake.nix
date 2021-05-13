@@ -27,6 +27,7 @@
             chiabip158 = python-final.callPackage ./pkgs/chia/chiabip158 {};
             chiapos = python-final.callPackage ./pkgs/chia/chiapos {};
             clvm = python-final.callPackage ./pkgs/chia/clvm {};
+            chiafan-workforce = python-final.callPackage ./pkgs/chiafan-workforce {};
           };
         };
       };
@@ -38,7 +39,7 @@
                    };
 
                    customizedPython = pkgs.python3.withPackages (python-packages: with python-packages; [
-                     blspy
+                     blspy chiabip158 chiavdf chiapos clvm
                    ]);
                in {
                  packages = {
@@ -48,6 +49,7 @@
                  devShell = pkgs.mkShell rec {
                    name = "vitalpkgs";
                    buildInputs = with pkgs; [
+                     python3Packages.chiafan-workforce
                      popl nlohmann_json clickhouse-cpp
                      customizedPython
                    ];

@@ -1,5 +1,6 @@
 { lib
 , pkgs
+, stdenv
 , buildPythonPackage
 , isPy37
 , isPy38
@@ -27,7 +28,11 @@ in buildPythonPackage rec {
     sha256 = "0wh6k3fiyc2ymb12asx3w297qcwkbn7n69j3dxg64yvr05vnhzfg";
   };
 
+  buildInputs = [ stdenv.cc.cc.lib ];
+
   propagatedBuildInputs = [ setuptools ];
+
+  nativeBuildInputs = [ pkgs.autoPatchelfHook ];  
 
   meta = with lib; {
     description = "This implements the compact block filter construction in BIP 158";
