@@ -22,11 +22,12 @@
         ethminer = final.callPackage ./pkgs/ethminer {};
         python3 = prev.python3.override {
           packageOverrides = python-final: python-prev: {
-            blspy = python-final.callPackage ./pkgs/chia/blspy {};
-            chiavdf = python-final.callPackage ./pkgs/chia/chiavdf {};
-            chiabip158 = python-final.callPackage ./pkgs/chia/chiabip158 {};
-            chiapos = python-final.callPackage ./pkgs/chia/chiapos {};
-            clvm = python-final.callPackage ./pkgs/chia/clvm {};
+            # blspy = python-final.callPackage ./pkgs/chia/blspy {};
+            # chiavdf = python-final.callPackage ./pkgs/chia/chiavdf {};
+            # chiabip158 = python-final.callPackage ./pkgs/chia/chiabip158 {};
+            # chiapos = python-final.callPackage ./pkgs/chia/chiapos {};
+            # clvm = python-final.callPackage ./pkgs/chia/clvm {};
+            chiafan-workforce = python-final.callPackage ./pkgs/chiafan-workforce {};
           };
         };
       };
@@ -36,10 +37,6 @@
                      overlays = [ self.overlay ];
                      config.allowUnfree = true;
                    };
-
-                   customizedPython = pkgs.python3.withPackages (python-packages: with python-packages; [
-                     clvm
-                   ]);
                in {
                  packages = {
                    inherit (pkgs) popl nlohmann_json clickhouse-cpp ethminer;
@@ -49,7 +46,7 @@
                    name = "vitalpkgs";
                    buildInputs = with pkgs; [
                      popl nlohmann_json clickhouse-cpp
-                     customizedPython
+                     python3Packages.chiafan-workforce
                    ];
                  };
                });
