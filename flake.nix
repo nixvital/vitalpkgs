@@ -28,6 +28,7 @@
             # chiapos = python-final.callPackage ./pkgs/chia/chiapos {};
             # clvm = python-final.callPackage ./pkgs/chia/clvm {};
             chiafan-workforce = python-final.callPackage ./pkgs/chiafan-workforce {};
+            chiafan-monitor = python-final.callPackage ./pkgs/chiafan-monitor {};
           };
         };
       };
@@ -47,6 +48,7 @@
                    buildInputs = with pkgs; [
                      popl nlohmann_json clickhouse-cpp
                      python3Packages.chiafan-workforce
+                     python3Packages.chiafan-monitor
                    ];
                  };
                });
