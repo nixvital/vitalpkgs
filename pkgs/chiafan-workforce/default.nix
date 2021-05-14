@@ -7,8 +7,8 @@ buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "chiafan-org";
     repo = "chiafan-workforce";
-    rev = "0ed4262df46b62c3164cda17899d3dade79110b6";
-    sha256 = "sha256-pt4LkhwgBIG9tiBvPepnZaZJ2rwvNq03FE/HRLdNiMg=";
+    rev = "bb301e0e2a19077bdf203279f432af46438f6a80";
+    sha256 = "sha256-xAUmUn2ZHRSyDQGNm5jz1YmdjmudjvftWDf5ZdwVAQI=";
   };
 
   propagatedBuildInputs = [
