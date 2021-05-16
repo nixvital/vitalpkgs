@@ -20,6 +20,7 @@
         nlohmann_json = final.callPackage ./pkgs/nlohmann_json {};
         clickhouse-cpp = final.callPackage ./pkgs/clickhouse-cpp {};
         ethminer = final.callPackage ./pkgs/ethminer {};
+        highwayhash = final.callPackage ./pkgs/highwayhash {};
         python3 = prev.python3.override {
           packageOverrides = python-final: python-prev: {
             # blspy = python-final.callPackage ./pkgs/chia/blspy {};
@@ -40,13 +41,13 @@
                    };
                in {
                  packages = {
-                   inherit (pkgs) popl nlohmann_json clickhouse-cpp ethminer;
+                   inherit (pkgs) popl nlohmann_json clickhouse-cpp ethminer highwayhash;
                  };
 
                  devShell = pkgs.mkShell rec {
                    name = "vitalpkgs";
                    buildInputs = with pkgs; [
-                     popl nlohmann_json clickhouse-cpp
+                     popl nlohmann_json clickhouse-cpp highwayhash
                      python3Packages.chiafan-workforce
                      python3Packages.chiafan-monitor
                    ];
