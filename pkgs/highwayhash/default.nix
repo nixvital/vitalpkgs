@@ -1,18 +1,17 @@
-{ lib, stdenv, fetchFromGitHub }:
+{ lib, stdenv, cmake, fetchFromGitHub }:
 
 stdenv.mkDerivation rec {
   pname = "highwayhash";
   version = "1.0";
   
   src = fetchFromGitHub {
-    owner = "google";
+    owner = "breakds";
     repo = "highwayhash";
-    rev = "ea06651bd11387f5aac694c819314536fe7df060";
-    sha256 = "sha256-SD1k+/Ze4ocTD2SH+4DZpWTVBFB08XjB3SCFaVtDWgc=";
+    rev = "a5bea248f1628924dfdf133358ed27b8d4b24549";
+    sha256 = "sha256-3AawdydgD2v4ef9kskXIXzjZNACerkZ9AqEnqSqbDqM=";
   };
 
-  nativeBuildInputs = [];
-  installFlags = [ "DESTDIR=$(out)" "PREFIX=''" ];
+  nativeBuildInputs = [ cmake ];
 
   meta = with lib; {
     homepage = "https://github.com/google/highwayhash";
