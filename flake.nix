@@ -21,6 +21,7 @@
         clickhouse-cpp = final.callPackage ./pkgs/clickhouse-cpp {};
         ethminer = final.callPackage ./pkgs/ethminer {};
         highwayhash = final.callPackage ./pkgs/highwayhash {};
+        avro-cpp = final.callPackage ./pkgs/avro-cpp {};  # Updated with my CMake packaging patch
         python3 = prev.python3.override {
           packageOverrides = python-final: python-prev: {
             # blspy = python-final.callPackage ./pkgs/chia/blspy {};
@@ -41,7 +42,7 @@
                    };
                in {
                  packages = {
-                   inherit (pkgs) popl nlohmann_json clickhouse-cpp ethminer highwayhash;
+                   inherit (pkgs) popl nlohmann_json clickhouse-cpp ethminer highwayhash avro-cpp;
                  };
 
                  devShell = pkgs.mkShell rec {
