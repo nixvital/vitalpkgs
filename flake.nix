@@ -44,6 +44,7 @@
                  packages = {
                    inherit (pkgs) popl nlohmann_json clickhouse-cpp ethminer highwayhash avro-cpp;
                    chiafan-workforce = pkgs.python3Packages.chiafan-workforce;
+                   chiafan-monitor = pkgs.python3Packages.chiafan-monitor;
                  };
 
                  devShell = pkgs.mkShell rec {
