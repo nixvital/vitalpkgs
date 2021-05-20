@@ -7,8 +7,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "breakds";
     repo = "avro";
-    rev = "a1da5e854c45fbf7a485c4bde106e628aff1d30f";
-    sha256 = "sha256-hP/bG7MxgffwyzJUWcbAo+oGB6LA2hqqAP6/XDD7W50=";
+    rev = "5c12f990f25eab9fc5c75886721aa9d2e6658942";
+    sha256 = "sha256-SHe65cJfiWY9zYY0XFnIzrcwCMWNXXdcPrCTptEb1cY=";
   };
 
   cmakeDir = "../lang/c++";
