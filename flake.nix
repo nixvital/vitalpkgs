@@ -6,10 +6,11 @@
   '';
 
   inputs = {
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs?rev=f924460e91cba6473c5dc4b8ccb1a1cfc05bc2d7";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = {self, nixpkgs, flake-utils, ... }:
+  outputs = {self, nixpkgs, nixpkgs-unstable, flake-utils, ... }:
 
     let supportedLinuxSystems = [ "x86_64-linux" "i686-linux" "aarch64-linux" ];
 
@@ -22,13 +23,9 @@
         ethminer = final.callPackage ./pkgs/ethminer {};
         highwayhash = final.callPackage ./pkgs/highwayhash {};
         avro-cpp = final.callPackage ./pkgs/avro-cpp {};  # Updated with my CMake packaging patch
+        chia = nixpkgs-unstable.legacyPackages.chia;
         python3 = prev.python3.override {
           packageOverrides = python-final: python-prev: {
-            # blspy = python-final.callPackage ./pkgs/chia/blspy {};
-            # chiavdf = python-final.callPackage ./pkgs/chia/chiavdf {};
-            # chiabip158 = python-final.callPackage ./pkgs/chia/chiabip158 {};
-            # chiapos = python-final.callPackage ./pkgs/chia/chiapos {};
-            # clvm = python-final.callPackage ./pkgs/chia/clvm {};
             chiafan-workforce = python-final.callPackage ./pkgs/chiafan-workforce {};
             chiafan-monitor = python-final.callPackage ./pkgs/chiafan-monitor {};
           };
@@ -53,6 +50,7 @@
                      popl nlohmann_json clickhouse-cpp highwayhash
                      python3Packages.chiafan-workforce
                      python3Packages.chiafan-monitor
+                     chia
                    ];
                  };
                });
