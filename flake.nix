@@ -23,6 +23,7 @@
         ethminer = final.callPackage ./pkgs/ethminer {};
         highwayhash = final.callPackage ./pkgs/highwayhash {};
         avro-cpp = final.callPackage ./pkgs/avro-cpp {};  # Updated with my CMake packaging patch
+        civetweb = final.callPackage ./pkgs/civetweb {};
         chia = nixpkgs-unstable.legacyPackages.chia;
         python3 = prev.python3.override {
           packageOverrides = python-final: python-prev: {
@@ -42,6 +43,7 @@
                    inherit (pkgs) popl nlohmann_json clickhouse-cpp ethminer highwayhash avro-cpp;
                    chiafan-workforce = pkgs.python3Packages.chiafan-workforce;
                    chiafan-monitor = pkgs.python3Packages.chiafan-monitor;
+                   civetweb = pkgs.civetweb;
                  };
 
                  devShell = pkgs.mkShell rec {
