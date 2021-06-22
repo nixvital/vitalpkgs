@@ -20,7 +20,6 @@
         popl = final.callPackage ./pkgs/popl {};
         nlohmann_json = final.callPackage ./pkgs/nlohmann_json {};
         clickhouse-cpp = final.callPackage ./pkgs/clickhouse-cpp {};
-        ethminer = final.callPackage ./pkgs/ethminer {};
         highwayhash = final.callPackage ./pkgs/highwayhash {};
         avro-cpp = final.callPackage ./pkgs/avro-cpp {};  # Updated with my CMake packaging patch
         civetweb = final.callPackage ./pkgs/civetweb {};
