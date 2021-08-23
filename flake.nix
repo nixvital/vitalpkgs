@@ -22,6 +22,7 @@
         clickhouse-cpp = final.callPackage ./pkgs/clickhouse-cpp {};
         highwayhash = final.callPackage ./pkgs/highwayhash {};
         avro-cpp = final.callPackage ./pkgs/avro-cpp {};  # Updated with my CMake packaging patch
+        redis-plus-plus = final.callPackage ./pkgs/redis-plus-plus {};
         civetweb = final.callPackage ./pkgs/civetweb {};
         chia = nixpkgs-unstable.legacyPackages.chia;
         python3 = prev.python3.override {
@@ -43,6 +44,7 @@
                    chiafan-workforce = pkgs.python3Packages.chiafan-workforce;
                    chiafan-monitor = pkgs.python3Packages.chiafan-monitor;
                    civetweb = pkgs.civetweb;
+                   redis-plus-plus = pkgs.redis-plus-plus;
                  };
 
                  devShell = pkgs.mkShell rec {
