@@ -11,7 +11,7 @@ buildPythonPackage rec {
 
   src = ./.;
 
-  propagatedBuildInputs = [ requests click ];
+  propagatedBuildInputs = [ click ];
 
-  doCheck= false;
+  doCheck = false;
 }
