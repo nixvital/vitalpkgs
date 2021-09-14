@@ -30,6 +30,7 @@
           packageOverrides = python-final: python-prev: {
             chiafan-workforce = python-final.callPackage ./pkgs/chiafan-workforce {};
             chiafan-monitor = python-final.callPackage ./pkgs/chiafan-monitor {};
+            vscode-include-fix = python-final.callPackage ./pkgs/vscode-include-fix {};
           };
         };
       };
@@ -47,6 +48,7 @@
                    civetweb = pkgs.civetweb;
                    hiredis = pkgs.hiredis;
                    redis-plus-plus = pkgs.redis-plus-plus;
+                   vscode-include-fix = pkgs.python3Packages.vscode-include-fix;
                  };
 
                  devShell = pkgs.mkShell rec {
