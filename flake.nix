@@ -26,7 +26,7 @@
         hiredis = final.callPackage ./pkgs/hiredis {};
         civetweb = final.callPackage ./pkgs/civetweb {};
         chia = nixpkgs-unstable.legacyPackages.chia;
-        vscode-include-fix = final.python38Packages.callPackage ./pkgs/vscode-include-fix {};
+        vscode-include-fix = final.callPackage ./pkgs/vscode-include-fix {};
         python3 = prev.python3.override {
           packageOverrides = python-final: python-prev: {
             chiafan-workforce = python-final.callPackage ./pkgs/chiafan-workforce {};
