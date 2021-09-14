@@ -26,11 +26,11 @@
         hiredis = final.callPackage ./pkgs/hiredis {};
         civetweb = final.callPackage ./pkgs/civetweb {};
         chia = nixpkgs-unstable.legacyPackages.chia;
+        vscode-include-fix = final.python38Packages.callPackage ./pkgs/vscode-include-fix {};
         python3 = prev.python3.override {
           packageOverrides = python-final: python-prev: {
             chiafan-workforce = python-final.callPackage ./pkgs/chiafan-workforce {};
             chiafan-monitor = python-final.callPackage ./pkgs/chiafan-monitor {};
-            vscode-include-fix = python-final.callPackage ./pkgs/vscode-include-fix {};
           };
         };
       };
@@ -48,7 +48,7 @@
                    civetweb = pkgs.civetweb;
                    hiredis = pkgs.hiredis;
                    redis-plus-plus = pkgs.redis-plus-plus;
-                   vscode-include-fix = pkgs.python3Packages.vscode-include-fix;
+                   vscode-include-fix = pkgs.vscode-include-fix;
                  };
 
                  devShell = pkgs.mkShell rec {
