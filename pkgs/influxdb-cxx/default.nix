@@ -3,6 +3,7 @@
 , fetchFromGitHub
 , cmake
 , curl
+, boost17x
 }:
 
 llvmPackages_11.stdenv.mkDerivation rec {
@@ -19,11 +20,12 @@ llvmPackages_11.stdenv.mkDerivation rec {
   nativeBuildInputs = [ cmake ];
   buildInputs = [
     curl
+    (boost17x.override { enablePython = true; extraB2Args = [ " --with-locale stage " ]; })
   ];
 
   cmakeFlags = [
-    "-DINFLUXCXX_WITH_BOOST=OFF"
-    "-DINFLUXCXX_TESTING=OFF"
+    "-DINFLUXCXX_WITH_BOOST=ON"
+    "-DINFLUXCXX_TESTING=ON"
   ];
 
   meta = with lib; {
