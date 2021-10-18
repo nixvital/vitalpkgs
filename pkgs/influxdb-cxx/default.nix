@@ -24,8 +24,6 @@ llvmPackages_11.stdenv.mkDerivation rec {
   ];
 
   cmakeFlags = [
-    "-DINFLUXCXX_WITH_BOOST=ON"
-    "-DINFLUXCXX_TESTING=ON"
   ];
 
   meta = with lib; {
