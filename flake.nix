@@ -23,6 +23,7 @@
         highwayhash = final.callPackage ./pkgs/highwayhash {};
         avro-cpp = final.callPackage ./pkgs/avro-cpp {};  # Updated with my CMake packaging patch
         redis-plus-plus = final.callPackage ./pkgs/redis-plus-plus {};
+        influxdb-cxx = final.callPackage ./pkgs/influxdb-cxx {};
         hiredis = final.callPackage ./pkgs/hiredis {};
         civetweb = final.callPackage ./pkgs/civetweb {};
         chia = nixpkgs-unstable.legacyPackages.chia;
@@ -48,6 +49,7 @@
                    civetweb = pkgs.civetweb;
                    hiredis = pkgs.hiredis;
                    redis-plus-plus = pkgs.redis-plus-plus;
+                   influxdb-cxx = pkgs.influxdb-cxx;
                    vscode-include-fix = pkgs.vscode-include-fix;
                  };
 
