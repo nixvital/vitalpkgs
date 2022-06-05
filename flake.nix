@@ -20,7 +20,6 @@
         popl = final.callPackage ./pkgs/popl {};
         clickhouse-cpp = final.callPackage ./pkgs/clickhouse-cpp {};
         highwayhash = final.callPackage ./pkgs/highwayhash {};
-        avro-cpp = final.callPackage ./pkgs/avro-cpp {};  # Updated with my CMake packaging patch
         redis-plus-plus = final.callPackage ./pkgs/redis-plus-plus {};
         influxdb-cxx = final.callPackage ./pkgs/influxdb-cxx {};
         hiredis = final.callPackage ./pkgs/hiredis {};
@@ -35,7 +34,7 @@
                    };
                in {
                  packages = {
-                   inherit (pkgs) popl nlohmann_json clickhouse-cpp ethminer highwayhash avro-cpp;
+                   inherit (pkgs) popl nlohmann_json clickhouse-cpp ethminer highwayhash;
                    civetweb = pkgs.civetweb;
                    hiredis = pkgs.hiredis;
                    redis-plus-plus = pkgs.redis-plus-plus;
