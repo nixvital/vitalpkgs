@@ -21,6 +21,7 @@
         clickhouse-cpp = final.callPackage ./pkgs/clickhouse-cpp {};
         highwayhash = final.callPackage ./pkgs/highwayhash {};
         influxdb-cxx = final.callPackage ./pkgs/influxdb-cxx {};
+        # NOTE(breakds): 22.05 already have civetweb, but it does not enable websocket.
         civetweb = final.callPackage ./pkgs/civetweb {};
         vscode-include-fix = final.callPackage ./pkgs/vscode-include-fix {};
       };
