@@ -21,7 +21,6 @@
         clickhouse-cpp = final.callPackage ./pkgs/clickhouse-cpp {};
         highwayhash = final.callPackage ./pkgs/highwayhash {};
         influxdb-cxx = final.callPackage ./pkgs/influxdb-cxx {};
-        hiredis = final.callPackage ./pkgs/hiredis {};
         civetweb = final.callPackage ./pkgs/civetweb {};
         vscode-include-fix = final.callPackage ./pkgs/vscode-include-fix {};
       };
@@ -35,7 +34,6 @@
                  packages = {
                    inherit (pkgs) popl nlohmann_json clickhouse-cpp ethminer highwayhash;
                    civetweb = pkgs.civetweb;
-                   hiredis = pkgs.hiredis;
                    influxdb-cxx = pkgs.influxdb-cxx;
                    vscode-include-fix = pkgs.vscode-include-fix;
                  };
