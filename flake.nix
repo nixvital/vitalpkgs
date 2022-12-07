@@ -15,7 +15,10 @@
       clickhouse-cpp = final.callPackage ./pkgs/clickhouse-cpp {};
       highwayhash = final.callPackage ./pkgs/highwayhash {};
       influxdb-cxx = final.callPackage ./pkgs/influxdb-cxx {};
+      # Need this because the hiredis in nixpkgs does not handle CMake properly.
       hiredis = final.callPackage ./pkgs/hiredis {};
+      # Need this because the avro-cpp in nixpkgs does not handle CMake properly.
+      avro-cpp = final.callPackage ./pkgs/avro-cpp {};
       # NOTE(breakds): 22.05 already have civetweb, but it does not enable websocket.
       civetweb = final.callPackage ./pkgs/civetweb {};
       vscode-include-fix = final.callPackage ./pkgs/vscode-include-fix {};
@@ -37,7 +40,7 @@
                devShells.default = pkgs.mkShell rec {
                  name = "vitalpkgs";
                  buildInputs = with pkgs; [
-                   clickhouse-cpp highwayhash hiredis
+                   clickhouse-cpp highwayhash hiredis avro-cpp
                  ];
                };
              });
