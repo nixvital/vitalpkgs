@@ -22,6 +22,11 @@
       # NOTE(breakds): 22.05 already have civetweb, but it does not enable websocket.
       civetweb = final.callPackage ./pkgs/civetweb {};
       vscode-include-fix = final.callPackage ./pkgs/vscode-include-fix {};
+      # This is to make sure that the abseil we are using is the same version as
+      # the abseil used in arrow-cpp (it is actually used in grpc). However,
+      # grpc actually requires "CXX_STANDARD = 14", so it is still using a
+      # different one, just not too different.
+      abseil-cpp = prev.abseil-cpp_202206;
     };
   } // flake-utils.lib.eachSystem [ "x86_64-linux" ]
     (system: let pkgs = import nixpkgs {
