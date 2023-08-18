@@ -11,7 +11,7 @@ def main():
 @click.option('clang_path', '--clang',
               help = 'The clang bin path',
               type = click.STRING,
-              default= '/nix/store/p5w6pzixrxzikq4vjvkzg7xccwwbvanv-clang-wrapper-11.1.0/bin/clang')
+              default= '/nix/store/9k6s3zmhj2pvkg8a5s8n7d2sbpffv8hv-clang-wrapper-16.0.1/bin/clang')
 def cpp_json(clang_path: str):
     include_path_env = os.getenv('CMAKE_INCLUDE_PATH')
     if include_path_env == None:
@@ -32,7 +32,7 @@ def cpp_json(clang_path: str):
             ],
             "compilerPath": clang_path,
             "cStandard": "c17",
-            "cppStandard": "c++20",
+            "cppStandard": "c++23",
             "intelliSenseMode": "linux-clang-x64"
           }
       ],
