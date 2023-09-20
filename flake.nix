@@ -47,6 +47,10 @@
                  buildInputs = with pkgs; [
                    clickhouse-cpp highwayhash hiredis avro-cpp vscode-include-fix
                  ];
+                shellHook = ''
+                  # Add test env.
+                  export CMAKE_INCLUDE_PATH=$(pwd)
+                '';
                };
              });
 }
