@@ -2,17 +2,12 @@ import click
 import os
 import json
 
-@click.group()
-def main():
-    pass
-
-
-@main.command()
+@click.command()
 @click.option('clang_path', '--clang',
               help = 'The clang bin path',
               type = click.STRING,
               default= '/nix/store/9k6s3zmhj2pvkg8a5s8n7d2sbpffv8hv-clang-wrapper-16.0.1/bin/clang')
-def cpp_json(clang_path: str):
+def main(clang_path:str):
     include_path_env = os.getenv('CMAKE_INCLUDE_PATH')
     if include_path_env == None:
       print("CMAKE_INCLUDE_PATH has no content.")
