@@ -21,7 +21,7 @@
       avro-cpp = final.callPackage ./pkgs/avro-cpp {};
       # NOTE(breakds): 22.05 already have civetweb, but it does not enable websocket.
       civetweb = final.callPackage ./pkgs/civetweb {};
-      vscode-include-fix = final.callPackage ./pkgs/vscode-include-fix {};
+      vscode-include-fix = final.python3Packages.callPackage ./pkgs/vscode-include-fix {};
       # This is to make sure that the abseil we are using is the same version as
       # the abseil used in arrow-cpp (it is actually used in grpc). However,
       # grpc actually requires "CXX_STANDARD = 14", so it is still using a
@@ -45,7 +45,7 @@
                devShells.default = pkgs.mkShell rec {
                  name = "vitalpkgs";
                  buildInputs = with pkgs; [
-                   clickhouse-cpp highwayhash hiredis avro-cpp
+                   clickhouse-cpp highwayhash hiredis avro-cpp vscode-include-fix
                  ];
                };
              });
